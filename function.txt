@@ -1,0 +1,74 @@
+# a function is a packaged body of code that we can reuse by calling with the relevant parameters
+# def keyword - For Python to interpret the following code as a function
+# Name - To refer to when we need to call the function later
+# Arguments - Input value(s) that the function takes in
+# Body - The code that the function executes
+# Return value - The value that the function returns to the user when the function terminates
+
+#  temporary variables, which means that they are only accessible inside the function. 
+If you attempt to use first somewhere else in the code outside the function, you will get an error saying that first is undefined. 
+
+def name(input_lst): # 这里会忘记冒号
+    aaa = []
+    for row in input_lst:
+        aaa.append(row[0])
+    return aaa
+
+movie_names = name(movie_data) # 打错了list名
+print(movie_names[0:5]) 
+
+# 两个数据判断
+def equals_str(input_lst,input_str):
+    if input_lst[0] == input_str: 
+        return True
+    else:
+        return False
+	
+# 这里出现两个错误
+		def index_equals_str(input_lst,index,string):
+    if input_lst[index] == string: # 第一个是在这里写成了”string“，这里是抽象的概念
+        return True
+    else: 
+        return False
+    
+wonder_woman_in_color = index_equals_str(wonder_woman, 2, "Color") # 第二个是写成了color，python分辨大小写的，不是sql
+print(wonder_woman_in_color)
+
+# 搞清楚这里到底在干嘛
+def index_equals_str(input_lst,index,input_str):
+    if input_lst[index] == input_str:
+        return True
+    else:
+        return False
+def counter(input_lst,header_row = False):
+    num_elt = 0
+    if header_row == True:  # Instead, we can use an argument that has a default value that can be manipulated, we call this an optional argument. 
+	# Optional arguments have default values that they take on unless a different value is provided by the user.	
+        input_lst = input_lst[1:len(input_lst)]  # 有标题头的，先去掉，然后再数有多少行
+    for each in input_lst:
+        num_elt = num_elt + 1
+    return num_elt
+
+def feature_counter(input_lst, index, string, header_row = False) # 两个功能之汇总
+    counter = 0
+    if header_row == True:
+		input_lst = input_lst[1:len(input_lst)]
+		for each in input_lst:
+			if each[index] == string:
+            counter = counter + 1
+    return counter
+num_of_us_movies = feature_counter(movie_data,6,"USA",True)
+
+print(num_of_us_movies)
+
+# 
+def summary_statistics(input_lst):
+    num_japan_films = feature_counter(input_lst,6,"Japan",True)
+    num_color_films = feature_counter(input_lst,2,"Color",True)
+    num_films_in_english = feature_counter(input_lst,5,"English",True)
+    summary_dict = {"japan_films" : num_japan_films, "color_films" : num_color_films, "films_in_english" : num_films_in_english}
+    return summary_dict   
+
+summary = summary_statistics(movie_data)
+    
+
