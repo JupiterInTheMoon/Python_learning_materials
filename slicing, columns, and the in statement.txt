@@ -1,0 +1,43 @@
+#还是将大袋子装成小盒子，小盒子装成带隔间的小盒子
+f = open('la_weather.csv','r')
+data = f.read()
+weather_data = []
+newline = data.split('\n')
+for row in newline:
+    row_data = row.split(',')
+    weather_data.append(row_data)
+ 
+# 查一个东西是否在list里面  
+animals = ["cat", "dog", "rabbit"]
+cat_found = "cat" in animals
+# cat_found 是true 或者false
+# we used the in statement to check whether an element occurred in a list:
+for item in weather_type:
+    found = item in new_weather
+	weather_new_found.append(found)
+ 
+ # Dictionary 
+ # To accomplish this in an easier way, we can use a dictionary. A dictionary is like a list in that it has indexes,
+ # but the indexes aren't necessarily sequential numbers. We can create our own indexes with values of any data type, 
+ # including strin gs.
+ # dictionary {} list []
+ # scores = {}
+ # scores["Jim"] = 80
+ students = {
+    "Tom": 60,
+    "Jim": 70
+} # 怎么这里就用{}了又，一个一个加的时候用【】，两个以上用{}
+# 这里key是tom，value是60，注意不要漏了逗号
+students["Tom"] = students["Tom"] + 5
+
+planet_numbers = {"mercury": 1, "venus": 2, "earth": 3, "mars": 4}
+jupiter_found = "jupiter" in planet_numbers
+earth_found = "earth" in  planet_numbers
+# 我在这里犯过的错误是，首先jupiter裸跑，其次found = "jupiter" in planet_numbers， jupiter_found.append(found)
+# append()只能加数字，或string，
+
+if temperature > 50:
+    print("It's hot!")
+else:
+    print("It's cold!")
+# 总结，python中if逻辑的后面接：colon，话还没有说完还没有指示完毕的，都要加上逗号，comma。

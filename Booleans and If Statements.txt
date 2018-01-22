@@ -1,0 +1,21 @@
+print(crime_rates)
+highest = 0
+for cr in crime_rates:
+    if cr > highest:
+        highest = cr
+print(highest)
+
+first_500 = (crime_rates[0]>=500)
+print (frist_500)
+# output 是true，不是1
+
+# 把crime_list 中大于500的放在five_hundred_list 中
+five_hundred_list = []
+i = 0
+for cr in crime_rates:
+    if cr > 500:
+        
+        five_hundred_list.append(cr)
+    i += 1
+print(five_hundred_list)
+
