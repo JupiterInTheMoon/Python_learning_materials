@@ -110,12 +110,12 @@ class Dataset:
         self.data = data[1:]
     
     def column(self, label):  # Add a method named column that takes in a label argument, 
-		if label not in self.header:  # finds the index of the header, and returns a list of the column data.
+	if label not in self.header:  # finds the index of the header, and returns a list of the column data.
             return None
         
         index = 0
         for idx, element in enumerate(self.header):  #  A great function to help us search the header and extract both the index and label to check is called enumerate(). 
-				if label == element:
+	    if label == element:
                 index = idx
         
         column = []
